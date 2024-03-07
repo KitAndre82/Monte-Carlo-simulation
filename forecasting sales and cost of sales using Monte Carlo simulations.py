@@ -22,8 +22,6 @@ import matplotlib.pyplot as plt
 # Set the style for seaborn plots
 sns.set_style('whitegrid')
 
-
-
 def simulate_sales_and_cost(units_per_pdt, price_list, std_dev, COS_sales_ratio, num_simulations):
     ''' Function uses Monte Carlo analysis to simulate sales revenue and cost of sales. 
         It accepts 5 parameters:
@@ -85,6 +83,7 @@ def simulate_sales_and_cost(units_per_pdt, price_list, std_dev, COS_sales_ratio,
     
     return results_df
 
+
 def limits(df):
     '''
     Accepts a simulated dataframe of sales and COS and prints a 
@@ -113,10 +112,10 @@ def limits(df):
     upper_limit_COS_formatted = '{:,}'.format(round(upper_limit_COS,2))
 
     print("Lower Limit COS:", lower_limit_COS_formatted)
-    print("Upper Limit COS:", upper_limit_COS_formatted)
-    
+    print("Upper Limit COS:", upper_limit_COS_formatted) 
     
     return lower_limit_sales, upper_limit_sales,lower_limit_COS, upper_limit_COS
+
 
 def projected_sales(pdt_nums,price_list,COS_sales_ratio):
     ''' Accepts 3 parameters; products units list, the price list and COS_sales_ratio and returns projected sales and COS'''
@@ -128,7 +127,7 @@ def projected_sales(pdt_nums,price_list,COS_sales_ratio):
 # Storing dataframe of means of simulated means and COS in a variable called results 
 results = simulate_sales_and_cost(pdt_nums, price_list, std_dev, COS_sales_ratio, num_simulations)
 
-
+# Printing Projected sales and COS
 print('Projected sales: ', '{:,}'.format(round(projected_sales(pdt_nums,price_list,COS_sales_ratio)[0],2)))
 print('Projected COS: ', '{:,}'.format(round(projected_sales(pdt_nums,price_list,COS_sales_ratio)[1],2)))
 
